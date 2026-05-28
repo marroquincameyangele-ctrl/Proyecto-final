@@ -22,7 +22,6 @@ Proceso Proyecto_final
 	Definir col Como Entero; 
 	Definir row Como Entero;
 	Definir size Como Entero;
-	Definir odd Como Entero;
 	//variables inciso 11
 	Definir list Como Entero;
 	Dimensionar list[100];
@@ -389,8 +388,7 @@ Repetir //es para repetir todo el programa
 			para row<-1 Hasta size Con Paso 1 Hacer
 				
 				Para col<-row Hasta 1 Con Paso -1 Hacer
-					odd<-2*col-1;
-					Escribir odd," "Sin Saltar;
+					Escribir 2*col-1," "Sin Saltar;
 				FinPara
 				
 				Escribir "";
