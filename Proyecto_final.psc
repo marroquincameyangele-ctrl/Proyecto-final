@@ -7,16 +7,18 @@ Proceso Proyecto_final
 	Definir n1 Como Entero;
 	Definir n2 Como Entero;
 	//VARIABLES PARA MATRICES
-	Definir matriz1 Como Entero;
-	Dimensionar matriz1[100,100];
-	Definir matriz2 Como Entero; 
-	Dimensionar matriz2[100,100];
+	Definir matriz1R Como Entero;
+	Definir matriz1S Como Entero;
+	Definir matriz2S Como Entero;
+	Definir matrizS Como Entero;
+	Definir matriz3S Como Entero;
+	Definir matrizRR Como Entero;
+	Definir matriz1RR Como Entero;
+	Definir matriz2RR Como Entero;
 	Definir s Como Entero;
 	Definir v1 Como Entero; // usado tamb para insico 11
 	Definir v2 Como Entero; //usado tambien para inciso 11
 	Definir Stotal Como Entero;
-	Definir matriz3 Como Entero;
-	Dimensionar matriz3[100,100];
 	Definir Rtotal Como Entero;
 	//variables del inciso 9 y 10
 	Definir col Como Entero; 
@@ -24,7 +26,6 @@ Proceso Proyecto_final
 	Definir size Como Entero;
 	//variables inciso 11
 	Definir list Como Entero;
-	Dimensionar list[100];
 	Definir n Como Entero;
 	Definir average Como Real;
 	Definir dig_total Como Entero;
@@ -141,15 +142,16 @@ Repetir //es para repetir todo el programa
 			Escribir "==========================================";
 			Escribir "";
 			
-			Escribir "Indique la medida de su matriz (Como maximo debe ser de 100): "Sin Saltar;
+			Escribir "Indique la medida de su matriz: "Sin Saltar;
 			leer s;
+			Dimensionar matrizS(s,s);
 			
 			Escribir "";
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
 					Escribir "Ingrese los datos de izquierda a derecha de la fila ",v1+1," y columna ",v2+1,": "Sin Saltar;
-					Leer matriz1[v1, v2];
+					Leer matrizS[v1, v2];
 				FinPara
 			FinPara
 			
@@ -157,7 +159,7 @@ Repetir //es para repetir todo el programa
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-				Stotal <- Stotal + matriz1[v1, v2];
+				Stotal <- Stotal + matrizS[v1, v2];
 				FinPara
 			FinPara
 			
@@ -167,7 +169,7 @@ Repetir //es para repetir todo el programa
 			Escribir "";
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz1[v1, v2], " ";
+					Escribir Sin Saltar matrizS[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -184,24 +186,25 @@ Repetir //es para repetir todo el programa
 			Escribir "==========================================";
 			Escribir "";
 			
-			Escribir "Indique la medida de su matriz (Como maximo debe ser de 100): "Sin Saltar;
+			Escribir "Indique la medida de su matriz: "Sin Saltar;
 			leer s;
+			Dimensionar matriz1R(s,s);
 			
 			Escribir "";
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
 					Escribir "Ingrese los datos de izquierda a derecha de la fila ",v1+1," y columna ",v2+1,": "Sin Saltar;
-					Leer matriz1[v1, v2];
+					Leer matriz1R[v1, v2];
 				FinPara
 			FinPara
 			
-			Rtotal<-matriz1[0, 0];
+			Rtotal<-matriz1R[0, 0];
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					si v1<>0 y v2<>0 Entonces
-						Rtotal <- Rtotal - matriz1[v1, v2];
+					si v1<>0 o v2<>0 Entonces
+						Rtotal <- Rtotal - matriz1R[v1, v2];
 					FinSi
 				FinPara
 			FinPara
@@ -212,7 +215,7 @@ Repetir //es para repetir todo el programa
 			Escribir "";
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz1[v1, v2], " ";
+					Escribir Sin Saltar matriz1R[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -229,8 +232,11 @@ Repetir //es para repetir todo el programa
 			Escribir "=======================";
 			Escribir "";
 			
-			Escribir "Indique la medida de sus matrices (Como maximo debe ser de 100): "Sin Saltar;
+			Escribir "Indique la medida de sus matrices: "Sin Saltar;
 			leer s;
+			Dimensionar matriz1S(s,s);
+			Dimensionar matriz2S(s,s);
+			Dimensionar matriz3S(s,s);
 			
 			Escribir "";
 			
@@ -238,7 +244,7 @@ Repetir //es para repetir todo el programa
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
 					Escribir "Ingrese los datos de la matriz 1 de izquierda a derecha de la fila ",v1+1;
 					Escribir "y columna ",v2+1,": "Sin Saltar;
-					Leer matriz1[v1, v2];
+					Leer matriz1S[v1, v2];
 				FinPara
 			FinPara
 			
@@ -248,7 +254,7 @@ Repetir //es para repetir todo el programa
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
 					Escribir "Ingrese los datos de la matriz 2 de izquierda a derecha de la fila ",v1+1;
 					Escribir "y columna ",v2+1,": "Sin Saltar;
-					Leer matriz2[v1, v2];
+					Leer matriz2S[v1, v2];
 				FinPara
 			FinPara
 			
@@ -260,7 +266,7 @@ Repetir //es para repetir todo el programa
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz1[v1, v2], " ";
+					Escribir Sin Saltar matriz1S[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -270,7 +276,7 @@ Repetir //es para repetir todo el programa
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz2[v1, v2], " ";
+					Escribir Sin Saltar matriz2S[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -279,7 +285,7 @@ Repetir //es para repetir todo el programa
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					matriz3[v1,v2] <- matriz2[v1,v2] + matriz1[v1, v2];
+					matriz3S[v1,v2] <- matriz2S[v1,v2] + matriz1S[v1, v2];
 				FinPara
 			FinPara
 			
@@ -289,7 +295,7 @@ Repetir //es para repetir todo el programa
 			Escribir "";
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz3[v1, v2], " ";
+					Escribir Sin Saltar matriz3S[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -304,8 +310,11 @@ Repetir //es para repetir todo el programa
 			Escribir "========================";
 			Escribir "";
 			
-			Escribir "Indique la medida de sus matrices (Como maximo debe ser de 100): "Sin Saltar;
+			Escribir "Indique la medida de sus matrices: "Sin Saltar;
 			leer s;
+			Dimensionar matriz1RR(s,s);
+			Dimensionar matriz2RR(s,s);
+			Dimensionar matrizRR(s,s);
 			
 			Escribir "";
 			
@@ -313,7 +322,7 @@ Repetir //es para repetir todo el programa
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
 					Escribir "Ingrese los datos de la matriz 1 de izquierda a derecha de la fila ",v1+1;
 					Escribir "y columna ",v2+1,": "Sin Saltar;
-					Leer matriz1[v1, v2];
+					Leer matriz1RR[v1, v2];
 				FinPara
 			FinPara
 			
@@ -323,7 +332,7 @@ Repetir //es para repetir todo el programa
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
 					Escribir "Ingrese los datos de la matriz 2 de izquierda a derecha de la fila ",v1+1;
 					Escribir "y columna ",v2+1,": "Sin Saltar;
-					Leer matriz2[v1, v2];
+					Leer matriz2RR[v1, v2];
 				FinPara
 			FinPara
 			
@@ -335,7 +344,7 @@ Repetir //es para repetir todo el programa
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz1[v1, v2], " ";
+					Escribir Sin Saltar matriz1RR[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -345,7 +354,7 @@ Repetir //es para repetir todo el programa
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz2[v1, v2], " ";
+					Escribir Sin Saltar matriz2RR[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -354,7 +363,7 @@ Repetir //es para repetir todo el programa
 			
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-						matriz3[v1,v2] <- matriz1[v1,v2] - matriz2[v1, v2];
+						matrizRR[v1,v2] <- matriz1RR[v1,v2] - matriz2RR[v1, v2];
 				FinPara
 			FinPara
 			
@@ -366,7 +375,7 @@ Repetir //es para repetir todo el programa
 			Escribir "";
 			Para v1 <- 0 Hasta s - 1 Con Paso 1 Hacer
 				Para v2 <- 0 Hasta s - 1 Con Paso 1 Hacer
-					Escribir Sin Saltar matriz3[v1, v2], " ";
+					Escribir Sin Saltar matrizRR[v1, v2], " ";
 				FinPara
 				Escribir ""; 
 			FinPara
@@ -436,9 +445,10 @@ Repetir //es para repetir todo el programa
 			Escribir "";
 			
 			v2<-0;// evaluaciones y ingresos de datos
+			Dimensionar list(105);
 			
 			Repetir
-				Escribir "Ingrese los números que desea evaluar (maximo 100): "Sin Saltar;
+				Escribir "Ingrese los números que desea evaluar (maximo 100 números): "Sin Saltar;
 				Leer n;
 				si n<>(-1) Entonces
 					v2<-v2+1;
@@ -450,49 +460,68 @@ Repetir //es para repetir todo el programa
 			
 			Limpiar Pantalla;
 			
-			Stotal<-0;
-			average<-0;
-			dig_total<-0;
-			n_less<-list[1];
-			n_greater<-list[1];
-			Less_than<-0;
-			Greater_than<-0;
-			
-			Escribir "la Lista de números ingresada fue:";
-			Escribir "";
-			Para v1 <- 1 Hasta v2 Con Paso 1 Hacer
-				Escribir Sin Saltar list[v1], " ";
-				si list[v1]>n_greater  Entonces
-					n_greater<-list[v1]; //n mayor
-				FinSi 
-				si list[v1]<n_less Entonces
-					n_less<-list[v1]; //n menor
-				FinSi
-				Stotal <- Stotal + list[v1]; //suma total
-				dig_total<- v1; //total dig ingresados
-			FinPara
-			
-			average <- Stotal / dig_total; // promedio
-			
-			Para v1 <- 1 Hasta v2 Con Paso 1 Hacer
-				Si list[v1] > average Entonces
-					Greater_than <- Greater_than + 1;
-				SiNo
-					Si list[v1] < average Entonces
-						Less_than <- Less_than + 1;
+			Si v2=0 Entonces
+				Escribir "No ingresó ningún número";
+			Sino	
+				Stotal<-0;
+				average<-0;
+				dig_total<-0;
+				n_less<-list[1];
+				n_greater<-list[1];
+				Less_than<-0;
+				Greater_than<-0;
+				
+				Escribir "la Lista de números ingresada fue:";
+				Escribir "";
+				Para v1 <- 1 Hasta v2 Con Paso 1 Hacer
+					si v1=16 o v1=28 o v1=40 o v1=52 o v1=64 o v1=76 o v1=88 o v1=100 Entonces
+						Escribir "";
+						//esto es para que no se sobre sature la pagina
+						Escribir Sin Saltar list[v1], " ";
+						si list[v1]>n_greater  Entonces
+							n_greater<-list[v1]; //n mayor
+						FinSi 
+						si list[v1]<n_less Entonces
+							n_less<-list[v1]; //n menor
+						FinSi
+						Stotal <- Stotal + list[v1]; //suma total
+						dig_total<- v1; //total dig ingresados
+					sino
+						Escribir Sin Saltar list[v1], " ";
+						si list[v1]>n_greater  Entonces
+						n_greater<-list[v1]; //n mayor
+						FinSi 
+						si list[v1]<n_less Entonces
+							n_less<-list[v1]; //n menor
+						FinSi
+						Stotal <- Stotal + list[v1]; //suma total
+						dig_total<- v1; //total dig ingresados
 					FinSi
-				FinSi
-			FinPara
+				FinPara
+				
+				average <- Stotal / dig_total; // promedio
+				
+				Para v1 <- 1 Hasta v2 Con Paso 1 Hacer
+					Si list[v1] > average Entonces
+						Greater_than <- Greater_than + 1;
+					SiNo
+						Si list[v1] < average Entonces
+							Less_than <- Less_than + 1;
+						FinSi
+					FinSi
+				FinPara
+				
+				Escribir ""; 
+				Escribir "";
+				
+				Escribir "La suma de sus dígitos es: ",Stotal;
+				Escribir "El promedio de sus dígitos es: ",average;
+				Escribir "El número más grande ingresado es: ",n_greater;
+				Escribir "El número más pequeño ingresado es: ",n_less;
+				Escribir "hay ",Greater_than," números arriba del promedio";
+				Escribir "hay ",Less_than," números abajo del promedio";
+			FinSi
 			
-			Escribir ""; 
-			Escribir "";
-			
-			Escribir "La suma de sus dígitos es: ",Stotal;
-			Escribir "El promedio de sus dígitos es: ",average;
-			Escribir "El número más grande ingresado es: ",n_greater;
-			Escribir "El número más pequeño ingresado es: ",n_less;
-			Escribir "hay ",Greater_than," números arriba del promedio";
-			Escribir "hay ",Less_than," números abajo del promedio";
 			
 		
 	FinSegun
